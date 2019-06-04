@@ -32,4 +32,5 @@ public class BeneficiaryService {
     public List<Beneficiary> findAllBeneficiaries(){
         return benRepo.findAll();
     }
+
 }

@@ -2,8 +2,6 @@ package pl.jaczewski.coordinator;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
 public interface CoordinatorRepo extends JpaRepository<Coordinator, Long> {
 
     // Coordinator findFirstById(Long id);

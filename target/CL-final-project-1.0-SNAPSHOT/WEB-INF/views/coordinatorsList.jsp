@@ -20,8 +20,8 @@
     <!--
     <script>
         function confirmDelete(id, fullName) {
-            if (confirm("Do you want to erase an author '" + fullName + "'?")) {
-                window.location.href = "/authors/delete/" + id;
+            if (confirm("Czy na pewno chcesz skasować następującego koordynatora: '" + fullName + "'?")) {
+                window.location.href = "/coordinators/delete/" + id;
             }
         }
     </script>

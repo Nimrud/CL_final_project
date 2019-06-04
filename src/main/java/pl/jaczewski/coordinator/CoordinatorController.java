@@ -58,6 +58,8 @@ public class CoordinatorController {
         return "redirect:../list";
     }
 
+
+
     /*
     @GetMapping(value = "/delete/{id}", produces = "text/html; charset=UTF-8")
     public String deleteCoordinator(@PathVariable Long id){
