@@ -27,6 +27,9 @@ public class Beneficiary {
 
     private String street;
 
+    @Transient
+    private String benAddressAndContact;
+
     // koordynator 1
 
     private String benCoord1;
@@ -41,6 +44,9 @@ public class Beneficiary {
 
     private String fax1;
 
+    @Transient
+    private String benCoord1Info;
+
     // koordynator 2 (opcja)
 
     private String benCoord2;
@@ -54,6 +60,9 @@ public class Beneficiary {
     private String benCoord2phone2;
 
     private String fax2;
+
+    @Transient
+    private String benCoord2Info;
 
     public Beneficiary() {
     }
@@ -217,6 +226,33 @@ public class Beneficiary {
 
     public Beneficiary setFax2(String fax2) {
         this.fax2 = fax2;
+        return this;
+    }
+
+    public String getBenAddressAndContact() {
+        return street + "\n" + code + " " + city + "\n" + email;
+    }
+
+    public Beneficiary setBenAddressAndContact(String benAddressAndContact) {
+        this.benAddressAndContact = benAddressAndContact;
+        return this;
+    }
+
+    public String getBenCoord1Info() {
+        return benCoord1 + "\n" + benCoord1JobPosition + "\n" + benCoord1Email + "\n" + benCoord1phone1 + "\n" + benCoord1phone2;
+    }
+
+    public Beneficiary setBenCoord1Info(String benCoord1Info) {
+        this.benCoord1Info = benCoord1Info;
+        return this;
+    }
+
+    public String getBenCoord2Info() {
+        return benCoord2 + "\n" + benCoord2JobPosition + "\n" + benCoord2Email + "\n" + benCoord2phone1 + "\n" + benCoord2phone2;
+    }
+
+    public Beneficiary setBenCoord2Info(String benCoord2Info) {
+        this.benCoord2Info = benCoord2Info;
         return this;
     }
 }

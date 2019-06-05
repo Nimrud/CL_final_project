@@ -1,18 +1,21 @@
 package pl.jaczewski.project;
 
 import org.hibernate.validator.constraints.URL;
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.jaczewski.beneficiaries.Beneficiary;
 import pl.jaczewski.coordinator.Coordinator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Future;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-// @Table(name = "projects")
+@Table(name = "projects")
 public class Project {
 
     @Id
@@ -34,24 +37,29 @@ public class Project {
     @NotBlank
     private String name;
 
-    private boolean predefined;
+    private String predefined;
 
     private String region;
 
-    private Date signedDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate signedDate;
 
-    private Date qualifiedFrom;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate qualifiedFrom;
 
-    private Date startDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate startDate;
 
     @Future
-    private Date finishDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate finishDate;
 
     private BigDecimal projectValue;
 
     private BigDecimal qualifiedCost;
 
     @NotNull
+    @Min(value = 1)
     private BigDecimal dotation;
 
     private BigDecimal dotationAdjusted;
@@ -68,6 +76,8 @@ public class Project {
 
     @ManyToOne
     private Coordinator coordinator;
+
+    private boolean active = true;
 
     public Project() {
     }
@@ -126,11 +136,11 @@ public class Project {
         return this;
     }
 
-    public boolean isPredefined() {
+    public String getPredefined() {
         return predefined;
     }
 
-    public Project setPredefined(boolean predefined) {
+    public Project setPredefined(String predefined) {
         this.predefined = predefined;
         return this;
     }
@@ -144,38 +154,38 @@ public class Project {
         return this;
     }
 
-    public Date getSignedDate() {
+    public LocalDate getSignedDate() {
         return signedDate;
     }
 
-    public Project setSignedDate(Date signedDate) {
+    public Project setSignedDate(LocalDate signedDate) {
         this.signedDate = signedDate;
         return this;
     }
 
-    public Date getQualifiedFrom() {
+    public LocalDate getQualifiedFrom() {
         return qualifiedFrom;
     }
 
-    public Project setQualifiedFrom(Date qualifiedFrom) {
+    public Project setQualifiedFrom(LocalDate qualifiedFrom) {
         this.qualifiedFrom = qualifiedFrom;
         return this;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public Project setStartDate(Date startDate) {
+    public Project setStartDate(LocalDate startDate) {
         this.startDate = startDate;
         return this;
     }
 
-    public Date getFinishDate() {
+    public LocalDate getFinishDate() {
         return finishDate;
     }
 
-    public Project setFinishDate(Date finishDate) {
+    public Project setFinishDate(LocalDate finishDate) {
         this.finishDate = finishDate;
         return this;
     }
@@ -258,6 +268,15 @@ public class Project {
 
     public Project setCoordinator(Coordinator coordinator) {
         this.coordinator = coordinator;
+        return this;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public Project setActive(boolean active) {
+        this.active = active;
         return this;
     }
 }

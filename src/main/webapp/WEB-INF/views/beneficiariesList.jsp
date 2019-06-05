@@ -22,7 +22,7 @@
 
 <table border="1">
     <tr>
-        <th rowspan="2">Pełna nazwa</th>
+        <th rowspan="2">Beneficjent</th>
         <th rowspan="2">E-mail</th>
         <th rowspan="2">Miejscowość</th>
         <th rowspan="2">Kod</th>

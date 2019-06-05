@@ -26,6 +26,9 @@ public class Coordinator {
 
     private String phone2;
 
+    @Transient
+    private String coordinatorInfo;
+
 
     public Coordinator() {
     }
@@ -75,4 +78,12 @@ public class Coordinator {
         return this;
     }
 
+    public String getCoordinatorInfo() {
+        return fullName + "\n" + phone1 + ", " + phone2;
+    }
+
+    public Coordinator setCoordinatorInfo(String coordinatorInfo) {
+        this.coordinatorInfo = coordinatorInfo;
+        return this;
+    }
 }
