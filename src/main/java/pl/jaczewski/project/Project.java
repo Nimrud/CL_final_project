@@ -2,6 +2,7 @@ package pl.jaczewski.project;
 
 import org.hibernate.validator.constraints.URL;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 import pl.jaczewski.beneficiaries.Beneficiary;
 import pl.jaczewski.coordinator.Coordinator;
 
@@ -64,6 +65,7 @@ public class Project {
 
     private BigDecimal dotationAdjusted;
 
+    @Column(precision = 5, scale = 4)
     private BigDecimal currencyrateEUR;
 
     private BigDecimal dotationTransferred;
@@ -77,7 +79,7 @@ public class Project {
     @ManyToOne
     private Coordinator coordinator;
 
-    private boolean active = true;
+    private String status;
 
     public Project() {
     }
@@ -271,12 +273,12 @@ public class Project {
         return this;
     }
 
-    public boolean isActive() {
-        return active;
+    public String getStatus() {
+        return status;
     }
 
-    public Project setActive(boolean active) {
-        this.active = active;
+    public Project setStatus(String status) {
+        this.status = status;
         return this;
     }
 }

@@ -43,11 +43,12 @@
         <th>Koszt całkowity</th>
         <th>Koszt kwalifikowalny</th>
         <th>Dofinansowanie</th>
-        <th>Dofinansowanie po zmiananch</th>
+        <!-- <th>Dofinansowanie po zmiananch</th> -->
         <th>Kwota wypłacona/zatwierdzona</th>
         <th>Jako % kwoty dofinans.</th>
         <th>Kurs EUR/PLN</th>
         <th>Koordynator NFOŚiGW</th>
+        <th>Status projektu</th>
 
         <th>Zmiana</th>
     </tr>
@@ -75,11 +76,12 @@
             <td>${project.projectValue}</td>
             <td>${project.qualifiedCost}</td>
             <td>${project.dotation}</td>
-            <td>${project.dotationAdjusted}</td>
+            <!-- <td>${project.dotationAdjusted}</td> -->
             <td>[wypłacone - do uzup.]</td>
             <td>[% dofinans. - do uzup.]</td>
             <td>${project.currencyrateEUR}</td>
             <td>${project.coordinator.coordinatorInfo}</td>
+            <td>${project.status}</td>
 
             <td>
                 <a href="/projects/update/${project.id}">edytuj</a>

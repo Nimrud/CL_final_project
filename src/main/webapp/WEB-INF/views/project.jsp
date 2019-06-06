@@ -17,7 +17,7 @@
     <link href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/css/main.css"/>" rel="stylesheet">
 
-    <!-- skrypt do dodawania kalendarza -->
+    <!-- skrypt do dodawania customowego, polskiego kalendarza -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -26,7 +26,6 @@
             $(".datepicker").datepicker({
 
                 // opis funkcji: https://jqueryui.com/datepicker/
-
 
                 closeText: "Zamknij",
                 prevText: "&#x3C;Poprzedni",
@@ -49,7 +48,6 @@
                 changeYear: true,
                 dateFormat: "yy-mm-dd"
 
-
                 /* dodawanie ikonki z funkcją kalendarza:
                 showOn: "button",
                 buttonImage: "../../resources/img/calendar.gif",
@@ -60,6 +58,33 @@
         });
     </script>
 
+    <!-- dodawanie separatora w liczbach -->
+    <!-- działa tylko dla pola typu "text", wywala błędy przy próbie zapisu do bazy, z powodu używania przecinka,
+    z kropka też sobie nie radzi. Do przejrzenia i poprawy w wolnej chwili -->
+    <!--
+    <script>
+        $(function () {
+            $('.bigDecimalClass').on("keyup", function(e) {
+                // poniższa linijka zachowuje wartość, która jest już wpisana w pole (przy edycji danych)
+                var number = this.value
+                // console.log(e.keyCode)
+                // poniżej kody ASCII dla numerów, strzałek oraz przecinków (w tym tych na kalwiaturze numerycznej)
+                if(e.keyCode > 95 && e.keyCode < 106 || e.keyCode > 47 && e.keyCode < 58 || e.keyCode == 8 || e.keyCode == 127 || e.keyCode == 37 || e.keyCode == 38 || e.keyCode == 39 || e.keyCode ==40 || e.keyCode == 108 || e.keyCode == 188) {
+                    if (e.keyCode !== 39 && e.keyCode !== 37) {
+                        this.value = this.value.replace(/ /g, '');
+                        number = this.value;
+                        number = number.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+                        // console.log(number);
+                        this.value = number
+                    }
+                }else{
+                    e.preventDefault()
+                    this.value = number
+                }
+            });
+        })
+    </script>
+    -->
 
 </head>
 <body>
@@ -131,22 +156,22 @@
     <br>
 
     <label for="projectValueId">Koszt całkowity projektu: </label>
-    <form:input path="projectValue" type="number" step="0.01" min="1" id="projectValueId"/>
+    <form:input path="projectValue" type="number" step="0.01" min="1" id="projectValueId" class="bigDecimalClass"/>
     <form:errors path="projectValue" element="div"/>
     <br><br>
 
     <label for="qualifiedCostId">Koszty kwalifikowalne: </label>
-    <form:input path="qualifiedCost" type="number" step="0.01" min="1" id="qualifiedCostId"/>
+    <form:input path="qualifiedCost" type="number" step="0.01" min="1" id="qualifiedCostId" class="bigDecimalClass"/>
     <form:errors path="qualifiedCost" element="div"/>
     <br><br>
 
     <label for="dotationId">Dofinansowanie: </label>
-    <form:input path="dotation" type="number" step="0.01" min="1" id="dotationId"/>
+    <form:input path="dotation" type="number" step="0.01" min="1" id="dotationId" class="bigDecimalClass"/>
     <form:errors path="dotation" element="div"/>
     <br><br>
 
     <label for="dotationAdjustedId">Dofinansowanie po zmianach: </label>
-    <form:input path="dotationAdjusted" type="number" step="0.01" min="1" id="dotationAdjustedId"/>
+    <form:input path="dotationAdjusted" type="number" step="0.01" min="1" id="dotationAdjustedId" class="bigDecimalClass"/>
     <form:errors path="dotationAdjusted" element="div"/>
     <br><br>
 
@@ -167,6 +192,13 @@
     <label for="websiteId">Strona internetowa projektu: </label>
     <form:input type="text" path="website" id="websiteId"/>
     <form:errors path="website" element="div"/>
+    <br><br>
+
+    <Label for="statusId">Status projektu: </Label>
+    <form:select path="status">
+        <form:option value="" label="--wybierz--"/>
+        <form:options items="${status}" id="statusId"/>
+    </form:select>
     <br><br>
 
 

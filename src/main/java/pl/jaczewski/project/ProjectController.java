@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.jaczewski.beneficiaries.Beneficiary;
 import pl.jaczewski.beneficiaries.BeneficiaryService;
 import pl.jaczewski.coordinator.Coordinator;
@@ -69,6 +66,11 @@ public class ProjectController {
         return Arrays.asList("cały kraj", "dolnośląskie", "kujawsko-pomorskie", "lubelskie", "lubuskie", "łódzkie", "małopolskie", "mazowieckie", "opolskie", "podkarpackie", "podlaskie", "pomorskie", "śląskie", "świętokrzyskie", "warmińsko-mazurskie", "wielkopolskie", "zachodniopomorskie");
     }
 
+    @ModelAttribute("status")
+    public List<String> status() {
+        return Arrays.asList("w przygotowaniu", "w realizacji", "zakończony", "umowa rozwiązana");
+    }
+
     @ModelAttribute("beneficiaries")
     public List<Beneficiary> getBeneficiaries(){
         return benService.findAllBeneficiaries();
@@ -78,4 +80,26 @@ public class ProjectController {
     public List<Coordinator> getCoordinators(){
         return coordService.findAllCoordinators();
     }
+
+    @ModelAttribute("daysToFinish")
+    public List<Integer> getDaysToFinish() {
+        return Arrays.asList(30, 60, 180, 365);
+    }
+
+    @GetMapping(value = "/update/{id}", produces = "text/html; charset=UTF-8")
+    public String updateProject(@PathVariable Long id, Model model){
+        Project project = projectService.findProject(id);
+        model.addAttribute("project", project);
+        return "project";
+    }
+
+    @PostMapping(value = "/update/{id}", produces = "text/html; charset=UTF-8")
+    public String updateProject(@ModelAttribute @Valid Project project, BindingResult result){
+        if(result.hasErrors()){
+            return "project";
+        }
+        projectService.updateProject(project);
+        return "redirect:../list";
+    }
+
 }
