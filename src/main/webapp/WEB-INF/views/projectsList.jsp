@@ -21,7 +21,7 @@
 <body>
 
 <table border="1">
-    <tr>
+    <tr align="center">
         <th>PO</th>
         <th>Numer proj.</th>
         <th>Numer DoRIS</th>

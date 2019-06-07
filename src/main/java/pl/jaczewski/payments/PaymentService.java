@@ -32,4 +32,8 @@ public class PaymentService {
     public List<Payment> findAllPayments(){
         return payRepo.findAll();
     }
+
+    public List<Payment> findByProjectId(Long id){
+        return payRepo.findByProjectId(id);
+    }
 }

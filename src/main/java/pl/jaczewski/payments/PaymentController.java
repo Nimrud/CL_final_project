@@ -43,12 +43,13 @@ public class PaymentController {
     public String paymentsList(Model model){
         List<Payment> payments = payService.findAllPayments();
         model.addAttribute("payments", payments);
-        return "paymentsList";
+        return "allPaymentsList";
     }
+
     @GetMapping(value = "/update/{id}", produces = "text/html; charset=UTF-8")
     public String updatePayment(@PathVariable Long id, Model model){
         Payment payment = payService.findPayment(id);
-        model.addAttribute("payments", payment);
+        model.addAttribute("payment", payment);
         return "payment";
     }
 
@@ -65,5 +66,23 @@ public class PaymentController {
     public List<Project> getProjects(){
         List<Project> projects = projService.findAllProjects();
         return projects;
+    }
+
+    @GetMapping(value = "/list/{id}", produces = "text/html; charset=UTF-8")
+    public String projectPaymentsList(@PathVariable Long id, Model model){
+        List<Payment> payments = payService.findByProjectId(id);
+        Project project = projService.findProject(id);
+        model.addAttribute("payments", payments);
+        model.addAttribute("project", project);
+        return "projectPaymentsList";
+    }
+
+    @PostMapping(value = "/list/{id}", produces = "text/html; charset=UTF-8")
+    public String projectPaymentsList(@ModelAttribute @Valid Payment payment, BindingResult result){
+        if(result.hasErrors()){
+            return "projectPaymentsList";
+        }
+        payService.updatePayment(payment);
+        return "projectPaymentsList";
     }
 }

@@ -31,7 +31,7 @@
 <body>
 
 <table border="1">
-    <tr>
+    <tr align="center">
         <th>Imię i nazwisko</th>
         <th>E-mail</th>
         <th>Telefon 1</th>

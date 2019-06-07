@@ -21,7 +21,7 @@
 <body>
 
 <table border="1">
-    <tr>
+    <tr align="center">
         <th rowspan="2">Beneficjent</th>
         <th rowspan="2">E-mail</th>
         <th rowspan="2">Miejscowość</th>
