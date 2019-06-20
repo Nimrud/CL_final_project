@@ -9,6 +9,7 @@ import pl.jaczewski.project.Project;
 import pl.jaczewski.project.ProjectService;
 
 import javax.validation.Valid;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
@@ -42,7 +43,9 @@ public class PaymentController {
     @GetMapping(value = "/list", produces = "text/html; charset=UTF-8")
     public String paymentsList(Model model){
         List<Payment> payments = payService.findAllPayments();
+        BigDecimal sumOfAllPayments = payService.sumOfAllPayments();
         model.addAttribute("payments", payments);
+        model.addAttribute("allPayments", sumOfAllPayments);
         return "allPaymentsList";
     }
 
@@ -71,9 +74,11 @@ public class PaymentController {
     @GetMapping(value = "/list/{id}", produces = "text/html; charset=UTF-8")
     public String projectPaymentsList(@PathVariable Long id, Model model){
         List<Payment> payments = payService.findByProjectId(id);
+        BigDecimal sumOfAllPaymentsInProject = payService.sumPaymentsByProjectId(id);
         Project project = projService.findProject(id);
         model.addAttribute("payments", payments);
         model.addAttribute("project", project);
+        model.addAttribute("allPaymentsInProject", sumOfAllPaymentsInProject);
         return "projectPaymentsList";
     }
 
