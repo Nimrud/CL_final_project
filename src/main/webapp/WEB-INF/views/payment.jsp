@@ -64,7 +64,7 @@
     </form:select>
     <br><br>
 
-    <p>Tytuł projektu: ${projects}</p>
+    <p>Tytuł projektu: [do uzupełnienia]</p>
 
     <p>Data płatności:
         <form:input type="text" path="paymentDate" class="datepicker"/>

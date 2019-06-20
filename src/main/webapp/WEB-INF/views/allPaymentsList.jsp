@@ -54,5 +54,15 @@
 
 </table>
 
+<br>
+<table border="1">
+    <tr>
+        <th>Suma płatności we wszystkich projektach</th>
+    </tr>
+    <tr>
+        <td>${allPayments}</td>
+    </tr>
+</table>
+
 </body>
 </html>

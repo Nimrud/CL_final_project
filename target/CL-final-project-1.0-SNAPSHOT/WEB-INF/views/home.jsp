@@ -20,5 +20,31 @@
 </head>
 <body>
 
+<div>
+    Zaloguj się
+</div>
+
+<form method="post">
+    <div>
+        <label for="emailId">E-mail: </label>
+        <input type="email" name="email" id="emailId">
+
+    </div>
+
+    <div>
+        <label for="passwordId">Hasło: </label>
+        <input type="password" name="password" id="passwordId">
+
+    </div>
+
+    <c:if test="${isLogged == false}">
+        <div class="error">Logowanie się nie powiodło</div>
+        <br>
+    </c:if>
+
+    <input type="submit" value="Zaloguj się">
+
+</form>
+
 </body>
 </html>
