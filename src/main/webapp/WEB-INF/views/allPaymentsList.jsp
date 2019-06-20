@@ -28,7 +28,14 @@
 </head>
 <body>
 
-<table border="1">
+<%@include file="/WEB-INF/fragments/header.jspf" %>
+
+<br><br>
+
+<header>Lista wszystkich płatności</header>
+
+<table class="table-hover table-bordered">
+    <thead class="table-secondary">
     <tr align="center">
         <th>Numer projektu</th>
         <th>Nazwa projektu</th>
@@ -36,6 +43,7 @@
         <th>Data płatności</th>
         <th colspan="2">Edycja</th>
     </tr>
+    </thead>
 
     <c:forEach items="${payments}" var="payment">
         <tr>
@@ -44,10 +52,10 @@
             <td align="right" width="80">${payment.amount}</td>
             <td align="right">${payment.paymentDate}</td>
             <td>
-                <a href="/payments/update/${payment.id}">edytuj</a>
+                <a href="/payments/update/${payment.id}" class="btn btn-outline-warning">edytuj</a>
             </td>
             <td>
-                <a href="#" onclick="confirmDelete(${payment.id}, '${payment.amount}')">skasuj</a>
+                <a href="#" onclick="confirmDelete(${payment.id}, '${payment.amount}')" class="btn btn-outline-danger">skasuj</a>
             </td>
         </tr>
     </c:forEach>
@@ -55,14 +63,20 @@
 </table>
 
 <br>
-<table border="1">
+
+<table class="table-hover table-bordered">
+    <thead class="table-secondary">
     <tr>
         <th>Suma płatności we wszystkich projektach</th>
     </tr>
+    </thead>
+
     <tr>
-        <td>${allPayments}</td>
+        <td align="right">${allPayments}</td>
     </tr>
 </table>
+
+<%@include file="/WEB-INF/fragments/footer.jspf" %>
 
 </body>
 </html>

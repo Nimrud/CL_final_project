@@ -1,0 +1,96 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<nav class="navbar-light_blue fixed-top">
+    <div class="container">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03a"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="menu-string">Projekty</span>
+        </button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03b"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="menu-string">Płatności</span>
+        </button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03c"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="menu-string">Beneficjenci</span>
+        </button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03d"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="menu-string">Koordynatorzy</span>
+        </button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03e"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="menu-string">Użytkownik</span>
+        </button>
+
+
+        <img class="justify-content-end" src="../../resources/img/eea_logo.gif" width="200" height="100">
+
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03a">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/projects/list">Lista projektów</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/projects/add">Dodaj nowy projekt</a>
+                </li>
+                <li>&nbsp;</li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03b">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/payments/list">Lista płatności</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/payments/add">Dodaj nową płatność</a>
+                </li>
+                <li>&nbsp;</li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03c">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/beneficiaries/list">Lista beneficjentów</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/beneficiaries/add">Dodaj nowego beneficjenta</a>
+                </li>
+                <li>&nbsp;</li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03d">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/coordinators/list">Lista koordynatorów NFOŚiGW</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/coordinators/add">Dodaj nowego koordynatora</a>
+                </li>
+                <li>&nbsp;</li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03e">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/list">Lista użytkowników systemu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/logout">Wyloguj się</a>
+                </li>
+                <li>&nbsp;</li>
+            </ul>
+        </div>
+
+
+    </div>
+</nav>

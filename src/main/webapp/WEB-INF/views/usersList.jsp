@@ -10,8 +10,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Lista użytkowników</title>
+    <title>Lista użytkowników systemu</title>
 
+    <script src="<c:url value="/webjars/jquery/3.0.0/jquery.min.js"/>"></script>
+    <script src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"/>"></script>
+    <link href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/css/main.css"/>" rel="stylesheet">
+
+    <!--
     <script>
         function confirmDelete(id, fullName) {
             if (confirm("Czy na pewno chcesz skasować używkownika '" + fullName + "'?")) {
@@ -19,17 +25,27 @@
             }
         }
     </script>
+    -->
 
 </head>
 <body>
 
-<table border="1">
+<%@include file="/WEB-INF/fragments/header.jspf" %>
+
+<br><br>
+
+<header>Lista użytkowników systemu</header>
+
+
+<table class="table-responsive table-hover table-bordered">
+    <thead class="table-secondary">
     <tr align="center">
         <th>Imię i nazwisko</th>
         <th>E-mail</th>
         <th>Aktywny</th>
         <th>Zmiana</th>
     </tr>
+    </thead>
 
     <c:forEach items="${users}" var="user">
         <tr>
@@ -37,15 +53,19 @@
             <td>${user.email}</td>
             <td>${user.active}</td>
             <td>
-                <a href="/users/update/${user.id}">edytuj</a>
+                <a href="/users/update/${user.id}" class="btn btn-outline-warning">edytuj</a>
             </td>
+            <!--
             <td>
                 <a href="#" onclick="confirmDelete(${user.id}, '${user.fullName}')">skasuj</a>
             </td>
+            -->
         </tr>
     </c:forEach>
 
 </table>
+
+<%@include file="/WEB-INF/fragments/footer.jspf" %>
 
 </body>
 </html>
