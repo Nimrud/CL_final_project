@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-//@WebFilter(urlPatterns = {"/beneficiaries/*", "/coordinators/*", "/payments/*", "/projects/*"})
+@WebFilter(urlPatterns = {"/beneficiaries/*", "/coordinators/*", "/payments/*", "/projects/*"})
 public class CustomAuthorizationFilter extends GenericFilterBean {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
@@ -22,7 +22,7 @@ public class CustomAuthorizationFilter extends GenericFilterBean {
         User user = (User) session.getAttribute("userSession");
         if(user == null){
             HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.sendRedirect("/");
+            httpResponse.sendRedirect("/login");
         } else {
             filterChain.doFilter(request, response);
         }

@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -65,5 +66,11 @@ public class UserController {
 
     // dodać obsługę powtórzenia wprowadzania hasła i sprawdzania ich zgodności?
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session, Model model){
+        model.addAttribute("userSession", null);
+        session.invalidate();
+        return "redirect:../login";
+    }
 
 }
