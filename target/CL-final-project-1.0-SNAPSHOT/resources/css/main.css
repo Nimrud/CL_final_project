@@ -1,6 +1,5 @@
 body {
-    background-color: #eee;
-    background-image: url("../../resources/img/EEA_logo.jpg");
+    background-color: white;
 }
 
 .error {
@@ -14,16 +13,25 @@ header {
     font-size: 20px;
 }
 
-.navbar-blue {
-    background-color: #3b5998;
-    background-image: linear-gradient(#4e69a2, #3b5998 50%);
+.navbar-light_blue {
+    background-color: whitesmoke;
     border-bottom: 1px solid #133783;
+    border-top: 1px solid #133783;
 }
 
-.navbar-blue a {
-    color: white !important;
+.navbar-light_blue a {
+    color: #3b5998 !important;
 }
 
-.navbar-blue a:hover {
-    background: rgba(0, 0, 0, .1);
+.navbar-light_blue a:hover {
+    background: rgba(0, 0, 0, .05);
+}
+
+.menu-string {
+    color: navy;
+}
+
+.footer-string {
+    color: navy;
+    font-size: 12px;
 }

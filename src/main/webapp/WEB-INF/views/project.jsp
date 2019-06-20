@@ -89,6 +89,12 @@
 </head>
 <body>
 
+<%@include file="/WEB-INF/fragments/header.jspf" %>
+
+<br><br>
+
+<header>&nbsp;</header>
+
 <form:form method="post" modelAttribute="project">
 
     <Label for="programmeId">Program operacyjny: </Label>
@@ -171,7 +177,8 @@
     <br><br>
 
     <label for="dotationAdjustedId">Dofinansowanie po zmianach: </label>
-    <form:input path="dotationAdjusted" type="number" step="0.01" min="1" id="dotationAdjustedId" class="bigDecimalClass"/>
+    <form:input path="dotationAdjusted" type="number" step="0.01" min="1" id="dotationAdjustedId"
+                class="bigDecimalClass"/>
     <form:errors path="dotationAdjusted" element="div"/>
     <br><br>
 
@@ -204,6 +211,10 @@
 
     <input type="submit" value="Dodaj">
 </form:form>
+
+<br><br>
+
+<%@include file="/WEB-INF/fragments/footer.jspf" %>
 
 </body>
 </html>

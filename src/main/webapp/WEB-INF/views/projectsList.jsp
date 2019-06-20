@@ -20,76 +20,90 @@
 </head>
 <body>
 
-<table border="1">
-    <tr align="center">
-        <th>PO</th>
-        <th>Numer proj.</th>
-        <th>Numer DoRIS</th>
-        <th>Rezultat</th>
+<%@include file="/WEB-INF/fragments/header.jspf" %>
 
-        <th>Beneficjent</th>
-        <th>Beneficjent - dane kontaktowe</th>
-        <th>Beneficjent - koordynator 1</th>
-        <th>Beneficjent - koordynator 2</th>
+<br><br>
 
-        <th>Nazwa projektu</th>
-        <th>Predefiniowany</th>
-        <th>Region</th>
-        <th>Data podpisanie umowy</th>
-        <th>Kwalifikowalność od</th>
-        <th>Rozpoczęcie projektu</th>
-        <th>Koniec projektu</th>
+<header>Lista wszystkich projektów</header>
 
-        <th>Koszt całkowity</th>
-        <th>Koszt kwalifikowalny</th>
-        <th>Dofinansowanie</th>
-        <!-- <th>Dofinansowanie po zmiananch</th> -->
-        <th>Kwota wypłacona/zatwierdzona</th>
-        <th>Jako % kwoty dofinans.</th>
-        <th>Kurs EUR/PLN</th>
-        <th>Koordynator NFOŚiGW</th>
-        <th>Status projektu</th>
+<div>
 
-        <th>Zmiana</th>
-    </tr>
+    <table class="table-responsive table-hover table-bordered">
+        <thead class="table-secondary">
+        <tr align="center">
+            <th>PO</th>
+            <th>Numer proj.</th>
+            <th>Numer DoRIS</th>
+            <th>Rezultat</th>
 
-    <c:forEach items="${projects}" var="project">
-        <tr>
-            <td>${project.programme}</td>
-            <td>${project.projNumber}</td>
-            <td>${project.dorisNumber}</td>
-            <td>${project.outcome}</td>
+            <th>Beneficjent</th>
+            <th>Beneficjent - dane kontaktowe</th>
+            <th>Beneficjent - koordynator 1</th>
+            <th>Beneficjent - koordynator 2</th>
 
-            <td>${project.beneficiary.name}</td>
-            <td>${project.beneficiary.benAddressAndContact}</td>
-            <td>${project.beneficiary.benCoord1Info}</td>
-            <td>${project.beneficiary.benCoord2Info}</td>
+            <th>Nazwa projektu</th>
+            <th>Predefiniowany</th>
+            <th>Region</th>
+            <th>Data podpisanie umowy</th>
+            <th>Kwalifikowalność od</th>
+            <th>Rozpoczęcie projektu</th>
+            <th>Koniec projektu</th>
 
-            <td>${project.name}</td>
-            <td>${project.predefined}</td>
-            <td>${project.region}</td>
-            <td>${project.signedDate}</td>
-            <td>${project.qualifiedFrom}</td>
-            <td>${project.startDate}</td>
-            <td>${project.finishDate}</td>
+            <th>Koszt całkowity</th>
+            <th>Koszt kwalifikowalny</th>
+            <th>Dofinansowanie</th>
+            <!-- <th>Dofinansowanie po zmiananch</th> -->
+            <th>Kwota wypłacona/zatwierdzona</th>
+            <th>Jako % kwoty dofinans.</th>
+            <th>Kurs EUR/PLN</th>
+            <th>Koordynator NFOŚiGW</th>
+            <th>Status projektu</th>
 
-            <td>${project.projectValue}</td>
-            <td>${project.qualifiedCost}</td>
-            <td>${project.dotation}</td>
-            <!-- <td>${project.dotationAdjusted}</td> -->
-            <td>[wypłacone - do uzup.]</td>
-            <td>[% dofinans. - do uzup.]</td>
-            <td>${project.currencyrateEUR}</td>
-            <td>${project.coordinator.coordinatorInfo}</td>
-            <td>${project.status}</td>
-
-            <td>
-                <a href="/projects/update/${project.id}">edytuj</a>
-            </td>
+            <th>Zmiana</th>
         </tr>
-    </c:forEach>
+        </thead>
 
-</table>
+        <c:forEach items="${projects}" var="project">
+            <tr>
+                <td>${project.programme}</td>
+                <td>${project.projNumber}</td>
+                <td>${project.dorisNumber}</td>
+                <td>${project.outcome}</td>
+
+                <td>${project.beneficiary.name}</td>
+                <td>${project.beneficiary.benAddressAndContact}</td>
+                <td>${project.beneficiary.benCoord1Info}</td>
+                <td>${project.beneficiary.benCoord2Info}</td>
+
+                <td>${project.name}</td>
+                <td>${project.predefined}</td>
+                <td>${project.region}</td>
+                <td>${project.signedDate}</td>
+                <td>${project.qualifiedFrom}</td>
+                <td>${project.startDate}</td>
+                <td>${project.finishDate}</td>
+
+                <td>${project.projectValue}</td>
+                <td>${project.qualifiedCost}</td>
+                <td>${project.dotation}</td>
+                <!-- <td>${project.dotationAdjusted}</td> -->
+                <td>[wypłacone - do uzup.]</td>
+                <td>[% dofinans. - do uzup.]</td>
+                <td>${project.currencyrateEUR}</td>
+                <td>${project.coordinator.coordinatorInfo}</td>
+                <td>${project.status}</td>
+
+                <td>
+                    <a href="/projects/update/${project.id}" class="btn btn-outline-warning">edytuj</a>
+                </td>
+            </tr>
+        </c:forEach>
+
+    </table>
+
+</div>
+
+<%@include file="/WEB-INF/fragments/footer.jspf" %>
 
 </body>
 </html>

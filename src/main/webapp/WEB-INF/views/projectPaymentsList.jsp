@@ -28,12 +28,18 @@
 </head>
 <body>
 
-<br>
+<%@include file="/WEB-INF/fragments/header.jspf" %>
 
-<table border="1">
+<br><br>
+
+<header>Lista wszystkich płatności w projekcie</header>
+
+<table class="table-responsive table-hover table-bordered">
+    <thead class="table-secondary">
     <tr>
         <th>Numer projektu</th>
     </tr>
+    </thead>
     <tr>
         <td>${project.projNumber}</td>
     </tr>
@@ -41,10 +47,12 @@
 
 <br>
 
-<table border="1">
+<table class="table-responsive table-hover table-bordered">
+    <thead class="table-secondary">
     <tr>
         <th>Tytuł projektu</th>
     </tr>
+    </thead>
     <tr>
         <td>${project.name}</td>
     </tr>
@@ -52,12 +60,14 @@
 
 <br>
 
-<table border="1">
+<table class="table-responsive table-hover table-bordered">
+    <thead class="table-secondary">
     <tr align="center">
         <th>Płatność</th>
         <th>Data płatności</th>
         <th colspan="2">Edycja</th>
     </tr>
+    </thead>
 
     <c:forEach items="${payments}" var="payment">
         <tr>
@@ -76,14 +86,18 @@
 
 <br>
 
-<table border="1">
+<table class="table-responsive table-hover table-bordered">
+    <thead class="table-secondary">
     <tr>
         <th>Suma płatności w projekcie</th>
     </tr>
+    </thead>
     <tr>
-        <td>${allPaymentsInProject}</td>
+        <td align="right">${allPaymentsInProject}</td>
     </tr>
 </table>
+
+<%@include file="/WEB-INF/fragments/footer.jspf" %>
 
 </body>
 </html>
