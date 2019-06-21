@@ -20,91 +20,134 @@
 </head>
 <body>
 
-<form:form method="post" modelAttribute="beneficiary">
+<%@include file="/WEB-INF/fragments/header.jspf" %>
 
-    <p><b>Dane beneficjenta:</b></p>
+<br><br>
 
-    <label for="NameId">Pełna nazwa: </label>
-    <form:input type="text" path="name" id="NameId" />
-    <form:errors path="name" element="div"/>
-    <br><br>
+<div class="container">
 
-    <label for="emailId">E-mail: </label>
-    <form:input type="text" path="email" id="emailId"/>
-    <form:errors path="email" element="div"/>
-    <br><br>
+    <header>Podaj dane beneficjenta</header>
+    <br>
 
-    <label for="cityId">Miasto: </label>
-    <form:input type="text" path="city" id="cityId"/>
-    <form:errors path="city" element="div"/>
-    <br><br>
+    <form:form method="post" modelAttribute="beneficiary">
 
-    <label for="codeId">Kod pocztowy: </label>
-    <form:input type="text" path="code" id="codeId"/>
-    <form:errors path="code" element="div"/>
-    <br><br>
+        <div class="row">
+            <div class="form-group col-md-8">
+                <label for="NameId">Pełna nazwa: </label>
+                <form:input type="text" path="name" id="NameId" size="63%"/>
+                <form:errors path="name" element="div"/>
+            </div>
 
-    <label for="streetId">Adres: </label>
-    <form:input type="text" path="street" id="streetId"/>
-    <form:errors path="street" element="div"/>
-    <br><br>
+            <div class="form-group col-md-4">
+                <label for="emailId">E-mail: </label>
+                <form:input type="text" path="email" id="emailId"/>
+                <form:errors path="email" element="div"/>
+            </div>
+        </div>
 
-    <p><b>Dane koordynatora 1:</b></p>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="cityId">Miasto: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+                <form:input type="text" path="city" id="cityId"/>
+                <form:errors path="city" element="div"/>
+            </div>
 
-    <label for="benCoord1Id">Imię i nazwisko: </label>
-    <form:input type="text" path="benCoord1" id="benCoord1Id" />
-    <form:errors path="benCoord1" element="div"/>
-    <br><br>
+            <div class="form-group col-md-4">
+                <label for="codeId">Kod pocztowy: </label>
+                <form:input type="text" path="code" id="codeId"/>
+                <form:errors path="code" element="div"/>
+            </div>
 
-    <label for="benCoord1JobPositionId">Stanowisko: </label>
-    <form:input type="text" path="benCoord1JobPosition" id="benCoord1JobPositionId" />
-    <form:errors path="benCoord1JobPosition" element="div"/>
-    <br><br>
+            <div class="form-group col-md-4">
+                <label for="streetId">Adres: &nbsp</label>
+                <form:input type="text" path="street" id="streetId"/>
+                <form:errors path="street" element="div"/>
+            </div>
+        </div>
+        <br>
 
-    <label for="benCoord1EmailId">E-mail: </label>
-    <form:input type="text" path="benCoord1Email" id="benCoord1EmailId"/>
-    <form:errors path="benCoord1Email" element="div"/>
-    <br><br>
+        <p><b>Dane koordynatora beneficjenta nr 1:</b></p>
 
-    <label for="benCoord1phone1Id">Telefon 1: </label>
-    <form:input type="text" path="benCoord1phone1" id="benCoord1phone1Id" />
-    <form:errors path="benCoord1phone1" element="div"/>
-    <br><br>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="benCoord1Id">Imię i nazwisko: </label>
+                <form:input type="text" path="benCoord1" id="benCoord1Id" />
+                <form:errors path="benCoord1" element="div"/>
+            </div>
 
-    <label for="benCoord1phone2Id">Telefon 2: </label>
-    <form:input type="text" path="benCoord1phone2" id="benCoord1phone2Id" />
-    <form:errors path="benCoord1phone2" element="div"/>
-    <br><br>
+            <div class="form-group col-md-4">
+                <label for="benCoord1JobPositionId">Stanowisko: </label>
+                <form:input type="text" path="benCoord1JobPosition" id="benCoord1JobPositionId"/>
+                <form:errors path="benCoord1JobPosition" element="div"/>
+            </div>
 
-    <p><b>Dane koordynatora 2:</b></p>
+            <div class="form-group col-md-4">
+                <label for="benCoord1EmailId">E-mail: </label>
+                <form:input type="text" path="benCoord1Email" id="benCoord1EmailId"/>
+                <form:errors path="benCoord1Email" element="div"/>
+            </div>
+        </div>
 
-    <label for="benCoord2Id">Imię i nazwisko: </label>
-    <form:input type="text" path="benCoord2" id="benCoord2Id" />
-    <form:errors path="benCoord2" element="div"/>
-    <br><br>
+        <div class="row">
 
-    <label for="benCoord2JobPositionId">Stanowisko: </label>
-    <form:input type="text" path="benCoord2JobPosition" id="benCoord2JobPositionId" />
-    <form:errors path="benCoord2JobPosition" element="div"/>
-    <br><br>
+            <div class="form-group col-md-4">
+                <label for="benCoord1phone1Id">Telefon 1: &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+                <form:input type="text" path="benCoord1phone1" id="benCoord1phone1Id"/>
+                <form:errors path="benCoord1phone1" element="div"/>
+            </div>
 
-    <label for="benCoord2EmailId">E-mail: </label>
-    <form:input type="text" path="benCoord2Email" id="benCoord2EmailId"/>
-    <form:errors path="benCoord2Email" element="div"/>
-    <br><br>
+            <div class="form-group col-md-4">
+                <label for="benCoord1phone2Id">Telefon 2: &nbsp &nbsp</label>
+                <form:input type="text" path="benCoord1phone2" id="benCoord1phone2Id"/>
+                <form:errors path="benCoord1phone2" element="div"/>
+            </div>
+        </div>
+        <br>
 
-    <label for="benCoord2phone1Id">Telefon 1: </label>
-    <form:input type="text" path="benCoord2phone1" id="benCoord2phone1Id" />
-    <form:errors path="benCoord2phone1" element="div"/>
-    <br><br>
+        <p><b>Dane koordynatora beneficjenta nr 2:</b></p>
 
-    <label for="benCoord2phone2Id">Telefon 2: </label>
-    <form:input type="text" path="benCoord2phone2" id="benCoord2phone2Id" />
-    <form:errors path="benCoord2phone2" element="div"/>
-    <br><br>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="benCoord2Id">Imię i nazwisko: </label>
+                <form:input type="text" path="benCoord2" id="benCoord2Id"/>
+                <form:errors path="benCoord2" element="div"/>
+            </div>
 
-    <input type="submit" value="Dodaj">
-</form:form>
+            <div class="form-group col-md-4">
+                <label for="benCoord2JobPositionId">Stanowisko: </label>
+                <form:input type="text" path="benCoord2JobPosition" id="benCoord2JobPositionId"/>
+                <form:errors path="benCoord2JobPosition" element="div"/>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="benCoord2EmailId">E-mail: </label>
+                <form:input type="text" path="benCoord2Email" id="benCoord2EmailId"/>
+                <form:errors path="benCoord2Email" element="div"/>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="form-group col-md-4">
+                <label for="benCoord2phone1Id">Telefon 1: &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+                <form:input type="text" path="benCoord2phone1" id="benCoord2phone1Id"/>
+                <form:errors path="benCoord2phone1" element="div"/>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="benCoord2phone2Id">Telefon 2: &nbsp &nbsp</label>
+                <form:input type="text" path="benCoord2phone2" id="benCoord2phone2Id"/>
+                <form:errors path="benCoord2phone2" element="div"/>
+            </div>
+        </div>
+        <br>
+
+        <input type="submit" value="Dodaj">
+    </form:form>
+
+</div>
+
+<%@include file="/WEB-INF/fragments/footer.jspf" %>
 
 </body>
 </html>

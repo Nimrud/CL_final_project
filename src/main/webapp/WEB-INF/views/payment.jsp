@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Dodaj płatność</title>
+    <title>Dodaj/edytuj płatność</title>
 
     <script src="<c:url value="/webjars/jquery/3.0.0/jquery.min.js"/>"></script>
     <script src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"/>"></script>
@@ -53,32 +53,51 @@
 </head>
 <body>
 
-<form:form method="post" modelAttribute="payment">
+<%@include file="/WEB-INF/fragments/header.jspf" %>
 
-    <label for="projNumberId">Numer projektu: </label>
-    <form:select path="project.id">
-        <form:option value="" label="--wybierz--"/>
-        <form:options items="${projects}"
-                      itemLabel="projNumber" itemValue="id"
-                      id="projNumberId"/>
-    </form:select>
-    <br><br>
+<br><br>
+<div class="container">
 
-    <p>Tytuł projektu: [do uzupełnienia]</p>
-
-    <p>Data płatności:
-        <form:input type="text" path="paymentDate" class="datepicker"/>
-        <form:errors path="paymentDate" element="div"/>
-    </p>
+    <header>Podaj dane płatności</header>
     <br>
 
-    <label for="amountId">Płatność: </label>
-    <form:input path="amount" type="number" step="0.01" id="amountId" class="number"/>
-    <form:errors path="amount" element="div"/>
-    <br><br>
+    <form:form method="post" modelAttribute="payment">
 
-    <input type="submit" value="Dodaj">
-</form:form>
+        <div class="row">
+            <div class="form-group col-md-5">
+                <label for="projNumberId">Numer projektu: </label>
+                <form:select path="project.id">
+                    <form:option value="" label="--wybierz--"/>
+                    <form:options items="${projects}"
+                                  itemLabel="projNumber" itemValue="id"
+                                  id="projNumberId"/>
+                </form:select>
+            </div>
+
+            <div class="form-group col-md-6">
+                <p>Tytuł projektu: [do uzupełnienia]</p>
+            </div>
+        </div>
+        <br>
+
+        <label for="amountId">Płatność: </label>
+        <form:input path="amount" type="number" step="0.01" id="amountId" class="number"/>
+        <form:errors path="amount" element="div"/>
+        <br><br>
+
+        <p>Data płatności:
+            <form:input type="text" path="paymentDate" class="datepicker"/>
+            <form:errors path="paymentDate" element="div"/>
+        </p>
+
+
+        <input type="submit" value="Dodaj">
+
+    </form:form>
+
+</div>
+
+<%@include file="/WEB-INF/fragments/footer.jspf" %>
 
 </body>
 </html>

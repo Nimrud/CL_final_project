@@ -24,9 +24,9 @@
 
 <br><br>
 
-<header>Lista wszystkich projektów</header>
+<div class="container-fluid">
 
-<div>
+<header>Lista wszystkich projektów</header>
 
     <table class="table-responsive table-hover table-bordered">
         <thead class="table-secondary">

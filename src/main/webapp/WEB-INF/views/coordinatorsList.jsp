@@ -34,37 +34,41 @@
 
 <br><br>
 
-<header>Lista koordynatorów NFOŚiGW</header>
+<div class="container">
 
-<table class="table-hover table-bordered">
-    <thead class="table-secondary">
-    <tr align="center">
-        <th>Imię i nazwisko</th>
-        <th>E-mail</th>
-        <th>Telefon 1</th>
-        <th>Telefon 2</th>
-        <th>Zmiana</th>
-    </tr>
-    </thead>
+    <header>Lista koordynatorów NFOŚiGW</header>
 
-    <c:forEach items="${coordinators}" var="coordinator">
-        <tr>
-            <td>${coordinator.fullName}</td>
-            <td>${coordinator.email}</td>
-            <td>${coordinator.phone1}</td>
-            <td>${coordinator.phone2}</td>
-            <td>
-                <a href="/coordinators/update/${coordinator.id}" class="btn btn-outline-warning">edytuj</a>
-            </td>
-            <!--
+    <table class="table-hover table-bordered">
+        <thead class="table-secondary">
+        <tr align="center">
+            <th>Imię i nazwisko</th>
+            <th>E-mail</th>
+            <th>Telefon 1</th>
+            <th>Telefon 2</th>
+            <th>Zmiana</th>
+        </tr>
+        </thead>
+
+        <c:forEach items="${coordinators}" var="coordinator">
+            <tr>
+                <td>${coordinator.fullName}</td>
+                <td>${coordinator.email}</td>
+                <td>${coordinator.phone1}</td>
+                <td>${coordinator.phone2}</td>
+                <td>
+                    <a href="/coordinators/update/${coordinator.id}" class="btn btn-outline-warning">edytuj</a>
+                </td>
+                <!--
             <td>
                 <a href="#" onclick="confirmDelete(${coordinator.id}, '${coordinator.fullName}')">skasuj</a>
             </td>
             -->
-        </tr>
-    </c:forEach>
+            </tr>
+        </c:forEach>
 
-</table>
+    </table>
+
+</div>
 
 <%@include file="/WEB-INF/fragments/footer.jspf" %>
 

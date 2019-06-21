@@ -68,7 +68,11 @@ public class Project {
     @Column(precision = 5, scale = 4)
     private BigDecimal currencyrateEUR;
 
+    private BigDecimal dotationInEUR;
+
     private BigDecimal dotationTransferred;
+
+    private BigDecimal percentageProgress;
 
     @URL
     private String website;
@@ -279,6 +283,24 @@ public class Project {
 
     public Project setStatus(String status) {
         this.status = status;
+        return this;
+    }
+
+    public BigDecimal getDotationInEUR() {
+        return dotationInEUR;
+    }
+
+    public Project setDotationInEUR(BigDecimal dotationInEUR) {
+        this.dotationInEUR = dotationInEUR;
+        return this;
+    }
+
+    public BigDecimal getPercentageProgress() {
+        return percentageProgress;
+    }
+
+    public Project setPercentageProgress(BigDecimal percentageProgress) {
+        this.percentageProgress = percentageProgress;
         return this;
     }
 }

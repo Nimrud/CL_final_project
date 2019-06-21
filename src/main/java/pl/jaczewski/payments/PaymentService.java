@@ -26,6 +26,10 @@ public class PaymentService {
         payRepo.save(payment);
     }
 
+    public void deletePayment(Long id){
+        payRepo.deleteById(id);
+    }
+
     public Payment findPayment(Long id){
         return payRepo.findById(id).orElse(null);
     }

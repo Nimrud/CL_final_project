@@ -128,7 +128,10 @@
                 <br>
 
                 <tr align="center">
-                    <td>[do uzupełnienia]</td>
+
+                    <td>
+                        ${allPaymentsInProject*100/project.dotation}%
+                    </td>
                 </tr>
             </table>
 

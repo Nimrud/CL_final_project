@@ -34,36 +34,40 @@
 
 <br><br>
 
-<header>Lista użytkowników systemu</header>
+<div class="container">
+
+    <header>Lista użytkowników systemu <span class="error">[w docelowej wersji - moduł niewidoczny dla użytkowników]</span></header>
 
 
-<table class="table-responsive table-hover table-bordered">
-    <thead class="table-secondary">
-    <tr align="center">
-        <th>Imię i nazwisko</th>
-        <th>E-mail</th>
-        <th>Aktywny</th>
-        <th>Zmiana</th>
-    </tr>
-    </thead>
+    <table class="table-hover table-bordered">
+        <thead class="table-secondary">
+        <tr align="center">
+            <th>Imię i nazwisko</th>
+            <th>E-mail</th>
+            <th>Aktywny</th>
+            <th>Zmiana</th>
+        </tr>
+        </thead>
 
-    <c:forEach items="${users}" var="user">
-        <tr>
-            <td>${user.fullName}</td>
-            <td>${user.email}</td>
-            <td>${user.active}</td>
-            <td>
-                <a href="/users/update/${user.id}" class="btn btn-outline-warning">edytuj</a>
-            </td>
-            <!--
+        <c:forEach items="${users}" var="user">
+            <tr>
+                <td>${user.fullName}</td>
+                <td>${user.email}</td>
+                <td>${user.active}</td>
+                <td>
+                    <a href="/users/update/${user.id}" class="btn btn-outline-warning">edytuj</a>
+                </td>
+                <!--
             <td>
                 <a href="#" onclick="confirmDelete(${user.id}, '${user.fullName}')">skasuj</a>
             </td>
             -->
-        </tr>
-    </c:forEach>
+            </tr>
+        </c:forEach>
 
-</table>
+    </table>
+
+</div>
 
 <%@include file="/WEB-INF/fragments/footer.jspf" %>
 

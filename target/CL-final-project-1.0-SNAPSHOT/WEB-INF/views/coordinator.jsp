@@ -20,30 +20,52 @@
 </head>
 <body>
 
-<form:form method="post" modelAttribute="coordinator">
+<br><br>
 
-    <label for="fullNameId">Imię i nazwisko: </label>
-    <form:input type="text" path="fullName" id="fullNameId" />
-    <form:errors path="fullName" element="div"/>
-    <br><br>
+<%@include file="/WEB-INF/fragments/header.jspf" %>
 
-    <label for="emailId">E-mail: </label>
-    <form:input type="text" path="email" id="emailId"/>
-    <form:errors path="email" element="div"/>
-    <br><br>
+<div class="container">
 
-    <label for="phone1Id">Telefon 1: </label>
-    <form:input type="text" path="phone1" id="phone1Id" />
-    <form:errors path="phone1" element="div"/>
-    <br><br>
+    <header>Podaj dane koordynatora NFOŚiGW</header>
+    <br>
 
-    <label for="phone2Id">Telefon 2: </label>
-    <form:input type="text" path="phone2" id="phone2Id" />
-    <form:errors path="phone2" element="div"/>
-    <br><br>
+    <form:form method="post" modelAttribute="coordinator">
 
-    <input type="submit" value="Dodaj">
-</form:form>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="fullNameId">Imię i nazwisko: </label>
+                <form:input type="text" path="fullName" id="fullNameId"/>
+                <form:errors path="fullName" element="div"/>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="emailId">E-mail: &nbsp; &nbsp;</label>
+                <form:input type="text" path="email" id="emailId"/>
+                <form:errors path="email" element="div"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="phone1Id">Telefon 1: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <form:input type="text" path="phone1" id="phone1Id"/>
+                <form:errors path="phone1" element="div"/>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="phone2Id">Telefon 2: </label>
+                <form:input type="text" path="phone2" id="phone2Id"/>
+                <form:errors path="phone2" element="div"/>
+            </div>
+        </div>
+        <br>
+
+        <input type="submit" value="Dodaj">
+    </form:form>
+
+</div>
+
+<%@include file="/WEB-INF/fragments/footer.jspf" %>
 
 </body>
 </html>
