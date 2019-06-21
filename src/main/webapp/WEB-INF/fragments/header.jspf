@@ -46,7 +46,10 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03b">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/payments/list">Lista płatności</a>
+                    <a class="nav-link" href="/payments/list">Lista wszystkich płatności</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/payments/list/1">Lista płatności w projekcie</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/payments/add">Dodaj nową płatność</a>

@@ -28,74 +28,113 @@
 </head>
 <body>
 
-<%@include file="/WEB-INF/fragments/header.jspf" %>
-
 <br><br>
 
-<header>Lista wszystkich płatności w projekcie</header>
+<%@include file="/WEB-INF/fragments/header.jspf" %>
 
-<table class="table-responsive table-hover table-bordered">
-    <thead class="table-secondary">
-    <tr>
-        <th>Numer projektu</th>
-    </tr>
-    </thead>
-    <tr>
-        <td>${project.projNumber}</td>
-    </tr>
-</table>
+<div class="container">
 
-<br>
+    <header>Lista wszystkich płatności w projekcie</header>
 
-<table class="table-responsive table-hover table-bordered">
-    <thead class="table-secondary">
-    <tr>
-        <th>Tytuł projektu</th>
-    </tr>
-    </thead>
-    <tr>
-        <td>${project.name}</td>
-    </tr>
-</table>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <table class="table-hover table-bordered" width="80%">
+                <thead class="table-secondary">
+                <tr align="center">
+                    <th>Numer projektu</th>
+                </tr>
+                </thead>
+                <tr align="center">
+                    <td>${project.projNumber}</td>
+                </tr>
+            </table>
+        </div>
 
-<br>
+        <div class="form-group col-md-6">
+            <table class="table-hover table-bordered" width="80%">
+                <thead class="table-secondary">
+                <tr align="center">
+                    <th>Tytuł projektu</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td align="center">${project.name}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-<table class="table-responsive table-hover table-bordered">
-    <thead class="table-secondary">
-    <tr align="center">
-        <th>Płatność</th>
-        <th>Data płatności</th>
-        <th colspan="2">Edycja</th>
-    </tr>
-    </thead>
+    <br>
 
-    <c:forEach items="${payments}" var="payment">
-        <tr>
-            <td align="right" width="80">${payment.amount}</td>
-            <td align="right">${payment.paymentDate}</td>
-            <td>
-                <a href="/payments/update/${payment.id}">edytuj</a>
-            </td>
-            <td>
-                <a href="#" onclick="confirmDelete(${payment.id}, '${payment.amount}')">skasuj</a>
-            </td>
-        </tr>
-    </c:forEach>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <table class="table-hover table-bordered" width="80%">
+                <thead class="table-secondary">
+                <tr align="center">
+                    <th width="30%">Płatność</th>
+                    <th width="30%">Data płatności</th>
+                    <th colspan="2">Edycja</th>
+                </tr>
+                </thead>
 
-</table>
+                <c:forEach items="${payments}" var="payment">
+                    <tr>
+                        <td align="right" width="80">${payment.amount}</td>
+                        <td align="right">${payment.paymentDate}</td>
+                        <td align="center">
+                            <a href="/payments/update/${payment.id}" class="btn btn-outline-warning">edytuj</a>
+                        </td>
+                        <td align="center">
+                            <a href="#" onclick="confirmDelete(${payment.id}, '${payment.amount}')"
+                               class="btn btn-outline-danger">skasuj</a>
+                        </td>
+                    </tr>
+                </c:forEach>
 
-<br>
+            </table>
+        </div>
 
-<table class="table-responsive table-hover table-bordered">
-    <thead class="table-secondary">
-    <tr>
-        <th>Suma płatności w projekcie</th>
-    </tr>
-    </thead>
-    <tr>
-        <td align="right">${allPaymentsInProject}</td>
-    </tr>
-</table>
+        <div class="form-group col-md-6">
+            <table class="table-hover table-bordered" width="80%">
+                <thead class="table-secondary">
+                <tr align="center">
+                    <th>Suma płatności w projekcie</th>
+                </tr>
+                </thead>
+                <tr align="center">
+                    <td>${allPaymentsInProject}</td>
+                </tr>
+            </table>
+
+            <table class="table-hover table-bordered" width="80%">
+                <thead class="table-secondary">
+                <tr align="center">
+                    <th>Dofinansowanie</th>
+                </tr>
+                </thead>
+                <br>
+
+                <tr align="center">
+                    <td>${project.dotation}</td>
+                </tr>
+            </table>
+
+            <table class="table-hover table-bordered" width="80%">
+                <thead class="table-secondary">
+                <tr align="center">
+                    <th>Zaawansowanie finansowe</th>
+                </tr>
+                </thead>
+                <br>
+
+                <tr align="center">
+                    <td>[do uzupełnienia]</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
 
 <%@include file="/WEB-INF/fragments/footer.jspf" %>
 
