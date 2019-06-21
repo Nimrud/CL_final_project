@@ -9,6 +9,7 @@ import pl.jaczewski.beneficiaries.Beneficiary;
 import pl.jaczewski.beneficiaries.BeneficiaryService;
 import pl.jaczewski.coordinator.Coordinator;
 import pl.jaczewski.coordinator.CoordinatorService;
+import pl.jaczewski.payments.PaymentController;
 import pl.jaczewski.payments.PaymentService;
 
 import javax.validation.Valid;
@@ -22,14 +23,13 @@ public class ProjectController {
     private ProjectService projectService;
     private BeneficiaryService benService;
     private CoordinatorService coordService;
-    private PaymentService payService;
+    private PaymentController payController;
 
-    @Autowired
-    public ProjectController(ProjectService projectService, BeneficiaryService benService, CoordinatorService coordService, PaymentService payService) {
+    public ProjectController(ProjectService projectService, BeneficiaryService benService, CoordinatorService coordService, PaymentController payController) {
         this.projectService = projectService;
         this.benService = benService;
         this.coordService = coordService;
-        this.payService = payService;
+        this.payController = payController;
     }
 
     @GetMapping("/add")

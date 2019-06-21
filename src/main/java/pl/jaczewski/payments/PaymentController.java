@@ -90,4 +90,10 @@ public class PaymentController {
         payService.updatePayment(payment);
         return "projectPaymentsList";
     }
+
+    @GetMapping(value = "/delete/{id}", produces = "text/html; charset=UTF-8")
+    public String deletePayment(@PathVariable Long id){
+        payService.deletePayment(id);
+        return "redirect:../list";
+    }
 }

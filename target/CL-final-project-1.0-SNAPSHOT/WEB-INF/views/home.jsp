@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Zaloguj się</title>
+    <title>System obsługi projektów EEA</title>
 
     <script src="<c:url value="/webjars/jquery/3.0.0/jquery.min.js"/>"></script>
     <script src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"/>"></script>
@@ -20,31 +20,42 @@
 </head>
 <body>
 
-<div>
-    Zaloguj się
+<div class="container" align="center">
+
+    <img src="../../resources/img/eea_logo.gif">
+
+    <br><br>
+
+    <div><b>Panel logowania do systemu</b></div>
+    <br>
+
+    <form method="post" class="horizontal">
+        <div>
+            <label for="emailId">E-mail: </label><br>
+            <input type="email" name="email" id="emailId">
+
+        </div>
+        <br>
+
+        <div>
+            <label for="passwordId">Hasło: </label><br>
+            <input type="password" name="password" id="passwordId">
+
+        </div>
+
+        <c:if test="${isLogged == false}">
+            <div class="error">Logowanie się nie powiodło</div>
+            <br>
+        </c:if>
+        <br>
+
+        <input type="submit" value="Zaloguj się">
+
+    </form>
+
 </div>
 
-<form method="post">
-    <div>
-        <label for="emailId">E-mail: </label>
-        <input type="email" name="email" id="emailId">
-
-    </div>
-
-    <div>
-        <label for="passwordId">Hasło: </label>
-        <input type="password" name="password" id="passwordId">
-
-    </div>
-
-    <c:if test="${isLogged == false}">
-        <div class="error">Logowanie się nie powiodło</div>
-        <br>
-    </c:if>
-
-    <input type="submit" value="Zaloguj się">
-
-</form>
+<%@include file="/WEB-INF/fragments/footer.jspf" %>
 
 </body>
 </html>
