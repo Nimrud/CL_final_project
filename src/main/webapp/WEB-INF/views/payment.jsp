@@ -80,7 +80,7 @@
         </div>
         <br>
 
-        <label for="amountId">Płatność: </label>
+        <label for="amountId">Kwota: </label>
         <form:input path="amount" type="number" step="0.01" id="amountId" class="number"/>
         <form:errors path="amount" element="div"/>
         <br><br>
