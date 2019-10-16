@@ -34,3 +34,9 @@ one stanowią.
 
 Aplikacja oblicza również, ile dni pozostało do zakończenia danego projektu oraz wyświetla listę projektów, 
 których realizacja zbliża się ku końcowi.
+
+Jest ona przewidziana do użytku dla kilkuosobowej grupy ściśle określonych odbiorców (pracowników 
+instytucji), stąt też nie ma konieczności tworzenia funkcjonalności rejestracji nowych użytkowników itp.
+
+Wszelkie dane osobowe użyte w aplikacji są wyłącznie przykładowe i nie reprezentują pracowników 
+istniejących instytucji.
